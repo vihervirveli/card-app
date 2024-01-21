@@ -1,5 +1,16 @@
 # Card App
 
+
+# 21.1.2024
+
+So far you can click one of the images and scrollIntoView takes you to the form that you need to fill out in order to send the card
+
+![create card](screenshots/createcard.png)
+
+![create card form](screenshots/createcardbottom.png)
+
+## Plan
+
 - types/React-Router
 - types/react-bootstrap
 - types/bootstrap
