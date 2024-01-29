@@ -8,19 +8,34 @@ const CreateCard:React.FC = () => {
   const [greeting, setGreeting] = useState<string>("");
   const sectionName = useRef<HTMLInputElement | null>(null);
  
+  /**
+   * Handles the submission of a single card
+   */
   const handleSubmit = () => {
     // e.preventDefault();
     console.log("this worked");
     console.log(name, recipient, greeting, pic);
 
+    //
+
+
   }
+
+  /***
+   * Moves the viewer into the desired section
+   */
   const scrollToSection = () => {
     sectionName.current?.scrollIntoView({block: "start", behavior: "smooth" });
   //  sectionName.current?.scrollTo()
   // window.scrollTo(0,100);
     };
-  
-  const handlePicChoice = (picture:string) => {
+
+
+  /**
+   * Handles the choosing of a picture. Clicking the picture makes the choice
+   * @param picture chosen picture as a string
+   */
+ const handlePicChoice = (picture:string) => {
     setPic(picture);
     scrollToSection();
   }
