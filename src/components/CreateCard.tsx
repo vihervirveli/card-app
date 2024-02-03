@@ -1,6 +1,7 @@
 import PicPanel from './PicPanel';
 import {useRef, useState} from "react";
 import "./PicPanel.module.css";
+
 const CreateCard:React.FC = () => {
   const [pic, setPic] = useState<string>("");
   const [name, setName] = useState<string>("");

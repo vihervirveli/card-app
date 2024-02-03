@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import routes from './routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CardObject } from './models/models';
+
 
 const App: React.FC = () => {
+  const [allCards, setAllCards] = useState<CardObject[]>([]);
+
   return (
   <BrowserRouter>
     <NavBar />

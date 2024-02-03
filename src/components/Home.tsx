@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 import 'bootstrap';
 import Intro from './Intro';
+
+
 const Home:React.FC = () => {
   return (
     <div>
