@@ -17,6 +17,7 @@ import { NewCardObject, CardObject } from '../models/models';
 
 const CreateCard:React.FC = () => {
   const [pic, setPic] = useState<string>(butterfly);
+  const [picFormat, setPicFormat] = useState<string>("");
   const [sender, setSender] = useState<string>("");
   const [recipient, setRecipient] = useState<string>("");
   const [greeting, setGreeting] = useState<string>("");
@@ -71,7 +72,11 @@ const CreateCard:React.FC = () => {
    * @param picture chosen picture as a string
    */
  const handlePicChoice = (picture:string) => {
+  const filename = picture.split('/').pop() || '';
+  const extension = filename.split('.').pop() || '';
+  const finalPicForm = `${filename}.${extension}`;
     setPic(picture);
+    setPicFormat(finalPicForm);
     scrollToSection();
   }
 

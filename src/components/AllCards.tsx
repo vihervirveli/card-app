@@ -15,6 +15,21 @@ const imageList = images.keys().map(image => images(image));
 const AllCards:React.FC = () => {
   const [allCards, setAllCards] = useState<CardObject[]>([]);
 
+/**
+ * Removes the targeted card from the database and from the state
+ */
+ const deleteCard = async (cardId:string) => {
+  //Firebase
+  await deleteDoc(doc(db, "cards", cardId));
+  //State
+  let filteredArray = allCards.filter(cardItem => cardItem.id !== cardId);
+  setAllCards(filteredArray); 
+ } 
+
+
+/**
+ * Fetches all the cards from Firebase and sets them to state 
+ * */ 
 useEffect(() => {
   const fetchData = async () => {
     // connect todos collection
@@ -34,7 +49,7 @@ useEffect(() => {
     });
 
     setAllCards(dbItems);
-    console.log(dbItems)
+    
   }
 
   fetchData();
@@ -72,24 +87,14 @@ useEffect(() => {
     <div>
     <h1>AllCards</h1>
     {
-      // mockData.map((card, index) => (
-      //   <div className="card mb-3" key={index}>
-      //   <img className="card-img-top" src={card.img} alt={card.img}>
-      //   </img>
-      //   <div className="card-body">
-      //   <h5 className="card-title">From {card.sender} to {card.recipient}</h5>
-      //   <div className="card-text">{card.greeting}</div>
-      //   </div>
-      // </div>
-      //   )
-      // )
       allCards.map((card, index) => (
         <div className="card mb-3" key={index}>
-        <img className="card-img-top" src={`../images/${card.img}`} alt={card.img}>
+        <img className="card-img-top" src={`${card.img}`} alt={card.img}>
         </img>
         <div className="card-body">
         <h5 className="card-title">From {card.sender} to {card.recipient}</h5>
         <div className="card-text">{card.greeting}</div>
+        <button className="btn btn-primary mt-3" onClick={() => deleteCard(card.id)}>Delete</button>
         </div>
       </div>
         )
