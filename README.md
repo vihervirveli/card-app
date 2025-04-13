@@ -1,6 +1,6 @@
 # Card App
 
-Added Firebase. Currently you can add and remove cards. Also fixed the pictures.
+Added Firestore. Currently you can add and remove cards. Also fixed the pictures.
 
 In Create Card, you can click one of the images and scrollIntoView takes you to the form that you need to fill out in order to send the card
 
